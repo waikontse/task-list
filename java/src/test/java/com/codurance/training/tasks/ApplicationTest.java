@@ -1,17 +1,20 @@
 package com.codurance.training.tasks;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
-public final class ApplicationTest extends AbstractApplicationTest {
+final class ApplicationTest extends AbstractApplicationTest {
 
 
     public ApplicationTest() throws IOException {
     }
 
-    @Test(timeout = 1000) public void
-    it_works() throws IOException {
+    @Test
+    @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
+    void it_works() throws IOException {
         execute("show");
 
         execute("add project secrets");

@@ -1,7 +1,7 @@
 package com.codurance.training.tasks;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import static java.lang.System.lineSeparator;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class AbstractApplicationTest {
+public abstract class AbstractApplicationTest {
     public static final String PROMPT = "> ";
     private final PipedOutputStream inStream = new PipedOutputStream();
     private final PrintWriter inWriter = new PrintWriter(inStream, true);
@@ -22,7 +22,7 @@ public class AbstractApplicationTest {
     private final PipedInputStream outStream = new PipedInputStream();
     private final BufferedReader outReader = new BufferedReader(new InputStreamReader(outStream));
 
-    private Thread applicationThread;
+    private final Thread applicationThread;
 
     public AbstractApplicationTest() throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(new PipedInputStream(inStream)));
@@ -31,13 +31,13 @@ public class AbstractApplicationTest {
         applicationThread = new Thread(taskList);
     }
 
-    @Before
+    @BeforeEach
     public void
     start_the_application() {
         applicationThread.start();
     }
 
-    @After
+    @AfterEach
     public void
     kill_the_application() throws IOException, InterruptedException {
         if (!stillRunning()) {

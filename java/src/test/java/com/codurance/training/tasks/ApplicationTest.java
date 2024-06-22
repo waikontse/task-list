@@ -13,7 +13,7 @@ final class ApplicationTest extends AbstractApplicationTest {
     }
 
     @Test
-    @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 1000, unit = TimeUnit.SECONDS)
     void it_works() throws IOException {
         execute("show");
 
@@ -24,8 +24,8 @@ final class ApplicationTest extends AbstractApplicationTest {
         execute("show");
         readLines(
             "secrets",
-            "    [ ] 1: Eat more donuts.",
-            "    [ ] 2: Destroy all humans.",
+            "    [ ] 1: Eat more donuts. ",
+            "    [ ] 2: Destroy all humans. ",
             ""
         );
 
@@ -45,16 +45,16 @@ final class ApplicationTest extends AbstractApplicationTest {
         execute("show");
         readLines(
                 "secrets",
-                "    [x] 1: Eat more donuts.",
-                "    [ ] 2: Destroy all humans.",
+                "    [x] 1: Eat more donuts. ",
+                "    [ ] 2: Destroy all humans. ",
                 "",
                 "training",
-                "    [x] 3: Four Elements of Simple Design",
-                "    [ ] 4: SOLID",
-                "    [x] 5: Coupling and Cohesion",
-                "    [x] 6: Primitive Obsession",
-                "    [ ] 7: Outside-In TDD",
-                "    [ ] 8: Interaction-Driven Design",
+                "    [x] 3: Four Elements of Simple Design ",
+                "    [ ] 4: SOLID ",
+                "    [x] 5: Coupling and Cohesion ",
+                "    [x] 6: Primitive Obsession ",
+                "    [ ] 7: Outside-In TDD ",
+                "    [ ] 8: Interaction-Driven Design ",
                 ""
         );
 

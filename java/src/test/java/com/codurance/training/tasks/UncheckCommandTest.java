@@ -23,8 +23,8 @@ class UncheckCommandTest extends AbstractApplicationTest {
         execute("show");
         readLines(
                 "secrets",
-                "    [ ] 1: Eat more donuts.",
-                "    [ ] 2: Destroy all humans.",
+                "    [ ] 1: Eat more donuts. ",
+                "    [ ] 2: Destroy all humans. ",
                 ""
         );
 
@@ -32,8 +32,8 @@ class UncheckCommandTest extends AbstractApplicationTest {
         execute("show");
         readLines(
                 "secrets",
-                "    [x] 1: Eat more donuts.",
-                "    [ ] 2: Destroy all humans.",
+                "    [x] 1: Eat more donuts. ",
+                "    [ ] 2: Destroy all humans. ",
                 ""
         );
 
@@ -44,8 +44,8 @@ class UncheckCommandTest extends AbstractApplicationTest {
         execute("show");
         readLines(
                 "secrets",
-                "    [ ] 1: Eat more donuts.",
-                "    [ ] 2: Destroy all humans.",
+                "    [ ] 1: Eat more donuts. ",
+                "    [ ] 2: Destroy all humans. ",
                 ""
         );
 

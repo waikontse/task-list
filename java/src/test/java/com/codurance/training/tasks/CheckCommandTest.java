@@ -14,7 +14,7 @@ public class CheckCommandTest extends AbstractApplicationTest {
     @Timeout(1)
     void checkUnknownTask_returnsErrorMessage() throws IOException {
         // GIVEN
-        var unknownIdTask = 45;
+        var unknownIdTask = "45";
 
         // WHEN
         execute(STR."check \{unknownIdTask}");

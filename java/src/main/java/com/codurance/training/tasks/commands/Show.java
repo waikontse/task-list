@@ -13,7 +13,7 @@ public record Show(String lowerCasedCommandString, InOutIo inOutIo) implements C
         for (Map.Entry<String, List<Task>> project : taskList.tasks().entrySet()) {
             inOutIo.out().println(project.getKey());
             for (Task task : project.getValue()) {
-                inOutIo.out().printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
+                inOutIo.out().printf("    %s", task.toString());
             }
             inOutIo.out().println();
         }

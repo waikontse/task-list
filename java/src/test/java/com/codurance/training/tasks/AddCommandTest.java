@@ -22,7 +22,6 @@ public class AddCommandTest extends AbstractApplicationTest {
         // THEN
         readLines(STR."Could not find a project with the name \"\{projectName}\".".replace(File.separator, ""));
 
-
         execute("quit");
     }
 

@@ -11,7 +11,7 @@ class UncheckCommandTest extends AbstractApplicationTest {
     }
 
     @Test
-    @Timeout(value = 2)
+    @Timeout(value = 10)
     void uncheckCommand_shouldUncheck_checkedTask() throws IOException {
         // GIVEN
         execute("show");

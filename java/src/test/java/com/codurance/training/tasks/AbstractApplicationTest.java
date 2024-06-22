@@ -1,5 +1,6 @@
 package com.codurance.training.tasks;
 
+import com.codurance.training.tasks.io.InOutIo;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -27,8 +28,16 @@ public abstract class AbstractApplicationTest {
     public AbstractApplicationTest() throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(new PipedInputStream(inStream)));
         PrintWriter out = new PrintWriter(new PipedOutputStream(outStream), true);
-        TaskList taskList = new TaskList(in, out);
-        applicationThread = new Thread(taskList);
+
+        applicationThread = new Thread(() -> {
+            try {
+                InOutIo inOutIo = new InOutIo(in, out);
+                TaskListApplication.run(inOutIo);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        });
     }
 
     @BeforeEach
